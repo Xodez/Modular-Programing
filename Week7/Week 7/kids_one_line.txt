@@ -1,0 +1,6 @@
+Ann,5
+Fred,6
+Betty,7
+Matilda,3
+Michael,4
+Minerva,5

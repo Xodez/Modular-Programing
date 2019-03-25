@@ -1,0 +1,10 @@
+Apple 56
+Orange 39
+Banana 45
+Mango 12
+Grape 94
+Blueberry 85
+Gooseberry 32
+Fig 47
+Melon 22
+Grapefruit 12

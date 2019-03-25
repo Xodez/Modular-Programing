@@ -1,0 +1,6 @@
+Italy, Rome
+France, Paris
+Germany, Berlin
+Ireland, Dublin
+Japan, Tokyo
+Norway, Oslo
