@@ -1,3 +1,0 @@
-# Kasparas Skruibis
-
-print('TEST')
