@@ -1,0 +1,8 @@
+a	Fail
+b	DT
+Average50.0
+%70+:1
+%60-69:0
+%50-59:0
+%40-49:0
+%40-:1Largest Grade: b100
