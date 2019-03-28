@@ -66,7 +66,21 @@ def show_menu():
 
 
 def save_data():
-    print('Test3')
+    dataList = load_data()
+    newList = []
+    for i in range(len(dataList[0])):
+        x1 = dataList[0][i]
+        x2 = dataList[1][i]
+        x3 = dataList[2][i]
+        x4 = dataList[3][i]
+        x5 = dataList[4][i]
+        newList.append(x1)
+        newList.append(x2)
+        newList.append(x3)
+        newList.append(x4)
+        newList.append(x5)
+
+
 
 
 def main():
@@ -74,4 +88,4 @@ def main():
     save_data()
 
 
-main()
+save_data()
