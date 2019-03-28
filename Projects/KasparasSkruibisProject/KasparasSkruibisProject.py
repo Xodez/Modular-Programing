@@ -8,11 +8,10 @@ def load_data():
         for i, line in enumerate(f):
             dataLists[i % 5].append(line.strip())
     return dataLists
+dataLists = load_data()
 
-
-def show_menu():
+def show_menu(dataLists):
     loop = True
-    dataLists = load_data()
     while loop:
         print(30 * "-", "MENU", 30 * "-")
         print("1. Show all employees")
@@ -58,15 +57,14 @@ def show_menu():
             print("Wrong option selection. Enter any key to try again..")
 
 
-def save_data():
-    dataList = load_data()
+def save_data(dataLists):
     newList = []
-    for i in range(len(dataList[0])):
-        x1 = dataList[0][i]
-        x2 = dataList[1][i]
-        x3 = dataList[2][i]
-        x4 = dataList[3][i]
-        x5 = dataList[4][i]
+    for i in range(len(dataLists[0])):
+        x1 = dataLists[0][i]
+        x2 = dataLists[1][i]
+        x3 = dataLists[2][i]
+        x4 = dataLists[3][i]
+        x5 = dataLists[4][i]
         newList.append(x1)
         newList.append(x2)
         newList.append(x3)
@@ -79,8 +77,8 @@ def save_data():
 
 
 def main():
-    show_menu()
-    save_data()
+    show_menu(dataLists)
+    save_data(dataLists)
 
 
 main()
