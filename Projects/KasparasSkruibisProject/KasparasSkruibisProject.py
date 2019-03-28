@@ -79,7 +79,9 @@ def save_data():
         newList.append(x3)
         newList.append(x4)
         newList.append(x5)
-
+    with open('testFile.txt', 'w') as f:
+        for i in range(len(newList)):
+            f.write(newList[i] + '\n')
 
 
 
