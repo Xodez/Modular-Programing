@@ -2,7 +2,7 @@
 Minnie
 Mouse
 minnie.mouse@cit.ie
-123456
+67589.54
 23456
 Bugs
 Bunny
@@ -13,3 +13,8 @@ Wiley
 Coyote
 wiley.coyote@cit.ie
 34234.56
+15122
+Kasparas\
+Skruibis
+Kasparas\Skruibis@gmail.com
+123456
