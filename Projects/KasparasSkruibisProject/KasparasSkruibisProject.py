@@ -37,16 +37,19 @@ def show_menu(dataLists):
             for i in range(len(dataLists[1])):
                 print("ID:", dataLists[0][i], "|", "Name:", dataLists[1][i], dataLists[2][i], "|", "Email:",
                       dataLists[3][i], "|", "Salary:", dataLists[4][i])
+            input("Press enter to continue")
         elif choice == 2:
             x = input("Please put in the ID of the employee: ")
             y = dataLists[0].index(x)
             print("ID:", dataLists[0][y], "|", "Name:", dataLists[1][y], dataLists[2][y], "|", "Email:",
                   dataLists[3][y], "|", "Salary:", dataLists[4][y])
+            input("Press enter to continue")
         elif choice == 3:
             x = input("Please put in the ID of the employee: ")
             y = dataLists[0].index(x)
             z = input("Please put in the new salary: ")
             dataLists[4][y] = z
+            input("Press enter to continue")
         elif choice == 4:
             x = input("Please put in the first name of the employee: ")
             y = input("Please put in the last name of the employee: ")
@@ -58,6 +61,7 @@ def show_menu(dataLists):
             dataLists[2].append(y)
             dataLists[3].append(email)
             dataLists[4].append(z)
+            input("Press enter to continue")
         elif choice == 5:
             x = input("Please enter the employee ID you wish to delete: ")
             y = dataLists[0].index(x)
@@ -79,6 +83,7 @@ def show_menu(dataLists):
                     f.write("\n")
                     f.write(str(tempList[i]))
                     f.write("\n")
+            input("Press enter to continue")
         elif choice == 7:
             print("Generate a report for management")
             sum = 0
