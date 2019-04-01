@@ -1,5 +1,7 @@
 # Kasparas Skruibis
 
+import random as r
+
 
 def load_data():
     dataLists = [[], [], [], [], []]
@@ -8,7 +10,10 @@ def load_data():
         for i, line in enumerate(f):
             dataLists[i % 5].append(line.strip())
     return dataLists
+
+
 dataLists = load_data()
+
 
 def show_menu(dataLists):
     loop = True
@@ -17,10 +22,10 @@ def show_menu(dataLists):
         print("1. Show all employees")
         print("2. Choose a specific employee")
         print("3. Edit the salary of an employee")
-        print("4. Menu Option 4")
-        print("5. Menu Option 4")
-        print("6. Menu Option 4")
-        print("7. Menu Option 7")
+        print("4. Add employee")
+        print("5. Remove employee")
+        print("6. Add bonus for employees")
+        print("7. Generate a report for management")
         print("8. Exit")
         print(67 * "-")
         try:
@@ -43,15 +48,52 @@ def show_menu(dataLists):
             z = input("Please put in the new salary: ")
             dataLists[4][y] = z
         elif choice == 4:
-            print("Menu 4 has been selected")
+            x = input("Please put in the first name of the employee: ")
+            y = input("Please put in the last name of the employee: ")
+            z = input("Please put in the salary of the employee: ")
+            genID = r.randint(10000, 99999)
+            email = x + y + "@gmail.com"
+            dataLists[0].append(genID)
+            dataLists[1].append(x)
+            dataLists[2].append(y)
+            dataLists[3].append(email)
+            dataLists[4].append(z)
         elif choice == 5:
-            print("Menu 5 has been selected")
+            x = input("Please enter the employee ID you wish to delete: ")
+            y = dataLists[0].index(x)
+            for i in range(len(dataLists)):
+                del dataLists[i][y]
         elif choice == 6:
-            print("Menu 5 has been selected")
+            x = float(input("Put in the % value for the end of year bonus: "))
+            tempList = []
+            for i in dataLists[4]:
+                y = float(i) / x
+                tempList.append(y)
+            with open('EndOfYearBonus.txt', 'w') as f:
+                for i in range(len(tempList)):
+                    f.write(str(dataLists[0][i]))
+                    f.write("\n")
+                    f.write(str(dataLists[1][i]))
+                    f.write("\n")
+                    f.write(str(dataLists[2][i]))
+                    f.write("\n")
+                    f.write(str(tempList[i]))
+                    f.write("\n")
         elif choice == 7:
-            print("Menu 5 has been selected")
+            print("Generate a report for management")
+            sum = 0
+            for i in dataLists[4]:
+                sum += (float(i))
+            x = sum / float(len(dataLists[4]))
+            y = max(dataLists[4])
+            z = dataLists[4].index(y)
+            print(30 * "-", "REPORT", 30 * "-")
+            print("Average salary =", x)
+            print("Largest Salary =", dataLists[0][z], dataLists[1][z], dataLists[2][z], y)
+            print(30 * "-", "REPORT", 30 * "-")
+            input("Press enter to continue")
         elif choice == 8:
-            print("Menu 5 has been selected")
+            print("Quitting application")
             loop = False
         else:
             print("Wrong option selection. Enter any key to try again..")
@@ -65,10 +107,10 @@ def save_data(dataLists):
         newList.append(dataLists[2][i])
         newList.append(dataLists[3][i])
         newList.append(dataLists[4][i])
-    with open('testFile.txt', 'w') as f:
+    with open('data.txt', 'w') as f:
         for i in range(len(newList)):
-            f.write(newList[i] + '\n')
-
+            f.write(str(newList[i]))
+            f.write("\n")
 
 
 def main():
