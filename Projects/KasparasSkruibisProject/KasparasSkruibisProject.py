@@ -31,6 +31,7 @@ def show_menu(dataLists):
             choice = int(input("Enter your choice [1-8]: "))
         except:
             choice = 'error'
+
         if choice == 1:
             print("Showing employees")
             for i in range(len(dataLists[1])):
@@ -38,14 +39,25 @@ def show_menu(dataLists):
                       dataLists[3][i], "|", "Salary:", dataLists[4][i])
             input("Press enter to continue")
         elif choice == 2:
-            x = input("Please put in the ID of the employee: ")
+            while True:
+                x = input("Please put in the ID of the employee: ")
+                if x in dataLists[0]:
+                    break
+                else:
+                    print("Invalid Input")
             y = dataLists[0].index(x)
             print("ID:", dataLists[0][y], "|", "Name:", dataLists[1][y], dataLists[2][y], "|", "Email:",
                   dataLists[3][y], "|", "Salary:", dataLists[4][y])
             input("Press enter to continue")
         elif choice == 3:
-            x = input("Please put in the ID of the employee: ")
+            while True:
+                x = input("Please put in the ID of the employee: ")
+                if x in dataLists[0]:
+                    break
+                else:
+                    print("Invalid Input")
             y = dataLists[0].index(x)
+            print("Current salary:", dataLists[4][y])
             z = input("Please put in the new salary: ")
             dataLists[4][y] = z
             input("Press enter to continue")
