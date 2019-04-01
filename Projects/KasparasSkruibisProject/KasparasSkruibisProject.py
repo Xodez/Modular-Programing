@@ -26,6 +26,7 @@ def show_menu(dataLists):
         print("6. Add bonus for employees")
         print("7. Generate a report for management")
         print("8. Exit")
+        print("9. Save data")
         print(67 * "-")
         try:
             choice = int(input("Enter your choice [1-8]: "))
@@ -62,10 +63,54 @@ def show_menu(dataLists):
             dataLists[4][y] = z
             input("Press enter to continue")
         elif choice == 4:
-            x = input("Please put in the first name of the employee: ")
-            y = input("Please put in the last name of the employee: ")
-            z = input("Please put in the salary of the employee: ")
-            genID = r.randint(10000, 99999)
+            while True:
+                x = input("Please put in the first name of the employee: ")
+                try:
+                    val = int(x)
+                    print("The input cannot be a number")
+                    continue
+                except:
+                    pass
+                if x == "":
+                    print("Input cannon be empty")
+                elif len(x) > 12:
+                    print("The input cannot be over 12 characters long")
+                else:
+                    break
+            while True:
+                y = input("Please put in the last name of the employee: ")
+                try:
+                    val = int(y)
+                    print("The input cannot be a number")
+                    continue
+                except:
+                    pass
+                if y == "":
+                    print("Input cannon be empty")
+                elif len(y) > 12:
+                    print("The input cannot be over 12 characters long")
+                else:
+                    break
+            while True:
+                z = input("Please put in the salary of the employee: ")
+                try:
+                    val = int(z)
+                    print("The input cannot be a number")
+                    continue
+                except:
+                    pass
+                if z == "":
+                    print("Input cannon be empty")
+                elif len(z) > 12:
+                    print("The input cannot be over 12 characters long")
+                else:
+                    break
+            while True:
+                genID = r.randint(10000, 99999)
+                if genID in dataLists[0]:
+                    continue
+                else:
+                    break
             email = x + y + "@gmail.com"
             dataLists[0].append(genID)
             dataLists[1].append(x)
@@ -74,15 +119,27 @@ def show_menu(dataLists):
             dataLists[4].append(z)
             input("Press enter to continue")
         elif choice == 5:
-            x = input("Please enter the employee ID you wish to delete: ")
+            while True:
+                x = input("Please enter the employee ID you wish to delete: ")
+                if x in dataLists[0]:
+                    break
+                else:
+                    print("Id not in file")
             y = dataLists[0].index(x)
             for i in range(len(dataLists)):
                 del dataLists[i][y]
         elif choice == 6:
-            x = float(input("Put in the % value for the end of year bonus: "))
+            while True:
+                x = input("Put in the % of the bonus: ")
+                try:
+                    val = float(x)
+                    break
+                except:
+                    print("The input must be a %")
+            xFloat = float(x)
             tempList = []
             for i in dataLists[4]:
-                y = float(i) / x
+                y = float(i) / xFloat
                 tempList.append(y)
             with open('EndOfYearBonus.txt', 'w') as f:
                 for i in range(len(tempList)):
@@ -109,8 +166,16 @@ def show_menu(dataLists):
             print(30 * "-", "REPORT", 30 * "-")
             input("Press enter to continue")
         elif choice == 8:
+            x = input("Would you like to save and quit? y/n: ")
+            if x == "y" or x == "yes":
+                print("Saving data")
+                save_data(dataLists)
             print("Quitting application")
             loop = False
+        elif choice == 9:
+            print("Saving data")
+            save_data(dataLists)
+            input("Press enter to continue")
         else:
             print("Wrong option selection. Enter any key to try again..")
 
@@ -131,7 +196,6 @@ def save_data(dataLists):
 
 def main():
     show_menu(dataLists)
-    save_data(dataLists)
 
 
 main()
