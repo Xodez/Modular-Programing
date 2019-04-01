@@ -60,16 +60,11 @@ def show_menu(dataLists):
 def save_data(dataLists):
     newList = []
     for i in range(len(dataLists[0])):
-        x1 = dataLists[0][i]
-        x2 = dataLists[1][i]
-        x3 = dataLists[2][i]
-        x4 = dataLists[3][i]
-        x5 = dataLists[4][i]
-        newList.append(x1)
-        newList.append(x2)
-        newList.append(x3)
-        newList.append(x4)
-        newList.append(x5)
+        newList.append(dataLists[0][i])
+        newList.append(dataLists[1][i])
+        newList.append(dataLists[2][i])
+        newList.append(dataLists[3][i])
+        newList.append(dataLists[4][i])
     with open('testFile.txt', 'w') as f:
         for i in range(len(newList)):
             f.write(newList[i] + '\n')
