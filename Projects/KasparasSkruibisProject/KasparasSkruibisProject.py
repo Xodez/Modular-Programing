@@ -5,7 +5,6 @@ import random as r
 
 def load_data():
     dataLists = [[], [], [], [], []]
-    i = 0
     with open('data.txt') as f:
         for i, line in enumerate(f):
             dataLists[i % 5].append(line.strip())
