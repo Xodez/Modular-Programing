@@ -104,8 +104,8 @@
 #             print(line.rstrip())
 #
 # def main():
-#     openFile("data.txt")
-#     contents("data.txt",3)
+#     openFile("employee.txt")
+#     contents("employee.txt",3)
 #
 # main()
 # #

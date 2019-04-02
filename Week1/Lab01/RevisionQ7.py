@@ -12,7 +12,7 @@ numOfStudentsIn4 = 0
 numOfStudentsIn5 = 0
 largestGrade = 0
 largestGradeName = ""
-f = open("data.txt" , "r")
+f = open("employee.txt" , "r")
 
 while True:
     levelOfCourse = int(f.readline().rstrip())

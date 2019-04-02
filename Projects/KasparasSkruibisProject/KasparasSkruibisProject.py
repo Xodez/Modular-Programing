@@ -3,9 +3,10 @@
 import random as r
 
 
+# This function will open the data in the employee text file and save it in lists
 def load_data():
     dataLists = [[], [], [], [], []]
-    with open('data.txt') as f:
+    with open('employee.txt') as f:
         for i, line in enumerate(f):
             dataLists[i % 5].append(line.strip())
     return dataLists
@@ -14,7 +15,9 @@ def load_data():
 dataLists = load_data()
 
 
+# This is the menu function, it will ask the user what it wants and contains all code to execute the input of the user.
 def show_menu(dataLists):
+    # This is the menu. It will show the user the options that s/he has.
     loop = True
     while loop:
         print(30 * "-", "MENU", 30 * "-")
@@ -27,12 +30,12 @@ def show_menu(dataLists):
         print("7. Generate a report for management")
         print("8. Exit")
         print("9. Save data")
-        print(67 * "-")
+        print(30 * "-", "MENU", 30 * "-")
         try:
             choice = int(input("Enter your choice [1-8]: "))
         except:
             choice = 'error'
-
+        # This is all the code for the different options that the user can chose.
         if choice == 1:
             print("Showing employees")
             for i in range(len(dataLists[1])):
@@ -128,6 +131,7 @@ def show_menu(dataLists):
             y = dataLists[0].index(x)
             for i in range(len(dataLists)):
                 del dataLists[i][y]
+            input("Press enter to continue")
         elif choice == 6:
             while True:
                 x = input("Put in the % of the bonus: ")
@@ -162,7 +166,7 @@ def show_menu(dataLists):
             z = dataLists[4].index(y)
             print(30 * "-", "REPORT", 30 * "-")
             print("Average salary =", x)
-            print("Largest Salary =", dataLists[0][z], dataLists[1][z], dataLists[2][z], y)
+            print("Largest Salary =", "ID:", dataLists[0][z], "Name:", dataLists[1][z], dataLists[2][z], "Salary:", y)
             print(30 * "-", "REPORT", 30 * "-")
             input("Press enter to continue")
         elif choice == 8:
@@ -180,6 +184,7 @@ def show_menu(dataLists):
             input("Incorrect option. Press the enter key to try again..")
 
 
+# This is the save function. When it is called it will save all data onto the text files.
 def save_data(dataLists):
     newList = []
     for i in range(len(dataLists[0])):
@@ -188,12 +193,13 @@ def save_data(dataLists):
         newList.append(dataLists[2][i])
         newList.append(dataLists[3][i])
         newList.append(dataLists[4][i])
-    with open('data.txt', 'w') as f:
+    with open('employee.txt', 'w') as f:
         for i in range(len(newList)):
             f.write(str(newList[i]))
             f.write("\n")
 
 
+# This main function runs the program
 def main():
     show_menu(dataLists)
 
