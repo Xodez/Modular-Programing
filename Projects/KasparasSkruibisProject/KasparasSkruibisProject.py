@@ -157,7 +157,7 @@ def show_menu(dataLists):
                     f.write("\n")
             input("Press enter to continue")
         elif choice == 7:
-            print("Generate a report for management")
+            print("Generating a report for management")
             sum = 0
             for i in dataLists[4]:
                 sum += (float(i))
