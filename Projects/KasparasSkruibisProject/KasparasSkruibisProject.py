@@ -144,7 +144,9 @@ def show_menu(dataLists):
             tempList = []
             for i in dataLists[4]:
                 y = float(i) / xFloat
-                tempList.append(y)
+                y_r = round(float(y), 2)
+                y_str = str(y_r)
+                tempList.append(y_str)
             with open('EndOfYearBonus.txt', 'w') as f:
                 for i in range(len(tempList)):
                     f.write(str(dataLists[0][i]))
