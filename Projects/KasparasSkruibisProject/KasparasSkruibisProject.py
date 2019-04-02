@@ -115,11 +115,11 @@ def show_menu(dataLists):
                 else:
                     break
             email = x + y + "@gmail.com"
-            dataLists[0].append(genID)
-            dataLists[1].append(x)
-            dataLists[2].append(y)
-            dataLists[3].append(email)
-            dataLists[4].append(z)
+            dataLists[0].append(str(genID))
+            dataLists[1].append(str(x))
+            dataLists[2].append(str(y))
+            dataLists[3].append(str(email))
+            dataLists[4].append(str(z))
             input("Press enter to continue")
         elif choice == 5:
             while True:
