@@ -94,11 +94,11 @@ def show_menu(dataLists):
             while True:
                 z = input("Please put in the salary of the employee: ")
                 try:
-                    val = int(z)
-                    print("The input cannot be a number")
-                    continue
-                except:
+                    val = float(z)
                     pass
+                except:
+                    print("The input must be a number")
+                    continue
                 if z == "":
                     print("Input cannon be empty")
                 elif len(z) > 12:
