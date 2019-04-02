@@ -177,7 +177,7 @@ def show_menu(dataLists):
             save_data(dataLists)
             input("Press enter to continue")
         else:
-            print("Wrong option selection. Enter any key to try again..")
+            input("Incorrect option. Press the enter key to try again..")
 
 
 def save_data(dataLists):
