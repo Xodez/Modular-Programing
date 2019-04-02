@@ -15,6 +15,42 @@ def load_data():
 dataLists = load_data()
 
 
+def showAllEmployees(dataLists):
+    print("Showing employees")
+    for i in range(len(dataLists[1])):
+        print("ID:", dataLists[0][i], "|", "Name:", dataLists[1][i], dataLists[2][i], "|", "Email:",
+              dataLists[3][i], "|", "Salary:", dataLists[4][i])
+    input("Press enter to continue")
+
+
+def chooseSpecificEmployee(dataLists):
+    while True:
+        x = input("Please put in the ID of the employee: ")
+        if x in dataLists[0]:
+            break
+        else:
+            print("Invalid Input")
+    y = dataLists[0].index(x)
+    print("ID:", dataLists[0][y], "|", "Name:", dataLists[1][y], dataLists[2][y], "|", "Email:",
+          dataLists[3][y], "|", "Salary:", dataLists[4][y])
+    input("Press enter to continue")
+
+
+def editSalary(dataLists):
+    while True:
+        x = input("Please put in the ID of the employee: ")
+        if x in dataLists[0]:
+            break
+        else:
+            print("Invalid Input")
+    y = dataLists[0].index(x)
+    print("Current salary:", dataLists[4][y])
+    z = input("Please put in the new salary: ")
+    dataLists[4][y] = z
+    input("Press enter to continue")
+
+
+def
 # This is the menu function, it will ask the user what it wants and contains all code to execute the input of the user.
 def show_menu(dataLists):
     # This is the menu. It will show the user the options that s/he has.
@@ -37,90 +73,13 @@ def show_menu(dataLists):
             choice = 'error'
         # This is all the code for the different options that the user can chose.
         if choice == 1:
-            print("Showing employees")
-            for i in range(len(dataLists[1])):
-                print("ID:", dataLists[0][i], "|", "Name:", dataLists[1][i], dataLists[2][i], "|", "Email:",
-                      dataLists[3][i], "|", "Salary:", dataLists[4][i])
-            input("Press enter to continue")
+            showAllEmployees(dataLists)
         elif choice == 2:
-            while True:
-                x = input("Please put in the ID of the employee: ")
-                if x in dataLists[0]:
-                    break
-                else:
-                    print("Invalid Input")
-            y = dataLists[0].index(x)
-            print("ID:", dataLists[0][y], "|", "Name:", dataLists[1][y], dataLists[2][y], "|", "Email:",
-                  dataLists[3][y], "|", "Salary:", dataLists[4][y])
-            input("Press enter to continue")
+            chooseSpecificEmployee(dataLists)
         elif choice == 3:
-            while True:
-                x = input("Please put in the ID of the employee: ")
-                if x in dataLists[0]:
-                    break
-                else:
-                    print("Invalid Input")
-            y = dataLists[0].index(x)
-            print("Current salary:", dataLists[4][y])
-            z = input("Please put in the new salary: ")
-            dataLists[4][y] = z
-            input("Press enter to continue")
+            editSalary(dataLists)
         elif choice == 4:
-            while True:
-                x = input("Please put in the first name of the employee: ")
-                try:
-                    val = int(x)
-                    print("The input cannot be a number")
-                    continue
-                except:
-                    pass
-                if x == "":
-                    print("Input cannon be empty")
-                elif len(x) > 12:
-                    print("The input cannot be over 12 characters long")
-                else:
-                    break
-            while True:
-                y = input("Please put in the last name of the employee: ")
-                try:
-                    val = int(y)
-                    print("The input cannot be a number")
-                    continue
-                except:
-                    pass
-                if y == "":
-                    print("Input cannon be empty")
-                elif len(y) > 12:
-                    print("The input cannot be over 12 characters long")
-                else:
-                    break
-            while True:
-                z = input("Please put in the salary of the employee: ")
-                try:
-                    val = float(z)
-                    pass
-                except:
-                    print("The input must be a number")
-                    continue
-                if z == "":
-                    print("Input cannon be empty")
-                elif len(z) > 12:
-                    print("The input cannot be over 12 characters long")
-                else:
-                    break
-            while True:
-                genID = r.randint(10000, 99999)
-                if genID in dataLists[0]:
-                    continue
-                else:
-                    break
-            email = x + y + "@gmail.com"
-            dataLists[0].append(str(genID))
-            dataLists[1].append(str(x))
-            dataLists[2].append(str(y))
-            dataLists[3].append(str(email))
-            dataLists[4].append(str(z))
-            input("Press enter to continue")
+
         elif choice == 5:
             while True:
                 x = input("Please enter the employee ID you wish to delete: ")
