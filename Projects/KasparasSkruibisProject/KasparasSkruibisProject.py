@@ -15,12 +15,16 @@ def loadData():
 dataLists = loadData()
 
 
+def enterToResume():
+    input("Press enter to continue")
+
+
 def showAllEmployees(dataLists):
     print("Showing employees")
     for i in range(len(dataLists[1])):
         print("ID:", dataLists[0][i], "|", "Name:", dataLists[1][i], dataLists[2][i], "|", "Email:",
               dataLists[3][i], "|", "Salary:", dataLists[4][i])
-    input("Press enter to continue")
+    enterToResume()
 
 
 def chooseSpecificEmployee(dataLists):
@@ -33,7 +37,7 @@ def chooseSpecificEmployee(dataLists):
     y = dataLists[0].index(x)
     print("ID:", dataLists[0][y], "|", "Name:", dataLists[1][y], dataLists[2][y], "|", "Email:",
           dataLists[3][y], "|", "Salary:", dataLists[4][y])
-    input("Press enter to continue")
+    enterToResume()
 
 
 def editSalary(dataLists):
@@ -47,52 +51,55 @@ def editSalary(dataLists):
     print("Current salary:", dataLists[4][y])
     z = input("Please put in the new salary: ")
     dataLists[4][y] = z
-    input("Press enter to continue")
+    enterToResume()
 
 
-def addEmployee(dataLists):
+def errorEval(x):
     while True:
-        x = input("Please put in the first name of the employee: ")
         try:
             val = int(x)
-            print("The input cannot be a number")
-            continue
-        except:
             pass
+        except:
+            print("The input must not be a number")
+            continue
         if x == "":
             print("Input cannon be empty")
         elif len(x) > 12:
             print("The input cannot be over 12 characters long")
         else:
             break
+
+
+
+def errorEvalF(x):
     while True:
-        y = input("Please put in the last name of the employee: ")
         try:
-            val = int(y)
-            print("The input cannot be a number")
-            continue
-        except:
-            pass
-        if y == "":
-            print("Input cannon be empty")
-        elif len(y) > 12:
-            print("The input cannot be over 12 characters long")
-        else:
-            break
-    while True:
-        z = input("Please put in the salary of the employee: ")
-        try:
-            val = float(z)
+            val = float(x)
             pass
         except:
             print("The input must be a number")
             continue
-        if z == "":
+        if x == "":
             print("Input cannon be empty")
-        elif len(z) > 12:
+        elif len(x) > 12:
             print("The input cannot be over 12 characters long")
         else:
             break
+
+
+def addEmployee(dataLists):
+    while True:
+        x = input("Please put in the first name of the employee: ")
+        errorEval(x)
+        break
+    while True:
+        y = input("Please put in the last name of the employee: ")
+        errorEval(y)
+        break
+    while True:
+        z = input("Please put in the salary of the employee: ")
+        errorEvalF(z)
+        break
     while True:
         genID = r.randint(10000, 99999)
         if genID in dataLists[0]:
@@ -100,12 +107,17 @@ def addEmployee(dataLists):
         else:
             break
     email = x + y + "@gmail.com"
+    i = 1
+    if email in dataLists[3]:
+        while email in dataLists[3]:
+            email = x + y + str(i) + "@gmail.com"
+            i += 1
     dataLists[0].append(str(genID))
     dataLists[1].append(str(x))
     dataLists[2].append(str(y))
     dataLists[3].append(str(email))
     dataLists[4].append(str(z))
-    input("Press enter to continue")
+    enterToResume()
 
 
 def removeEmployee(dataLists):
@@ -118,7 +130,7 @@ def removeEmployee(dataLists):
     y = dataLists[0].index(x)
     for i in range(len(dataLists)):
         del dataLists[i][y]
-    input("Press enter to continue")
+    enterToResume()
 
 
 def addBonus(dataLists):
@@ -146,7 +158,7 @@ def addBonus(dataLists):
             f.write("\n")
             f.write(str(tempList[i]))
             f.write("\n")
-    input("Press enter to continue")
+    enterToResume()
 
 
 def genReport(dataLists):
@@ -161,7 +173,7 @@ def genReport(dataLists):
     print("Average salary =", x)
     print("Largest Salary =", "ID:", dataLists[0][z], "Name:", dataLists[1][z], dataLists[2][z], "Salary:", y)
     print(30 * "-", "REPORT", 30 * "-")
-    input("Press enter to continue")
+    enterToResume()
 
 
 def quitAndSave():
