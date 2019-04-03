@@ -4,7 +4,7 @@ import random as r
 
 
 # This function will open the data in the employee text file and save it in lists
-def load_data():
+def loadData():
     dataLists = [[], [], [], [], []]
     with open('employee.txt') as f:
         for i, line in enumerate(f):
@@ -12,7 +12,7 @@ def load_data():
     return dataLists
 
 
-dataLists = load_data()
+dataLists = loadData()
 
 
 def showAllEmployees(dataLists):
@@ -168,12 +168,12 @@ def quitAndSave():
     x = input("Would you like to save and quit? y/n: ")
     if x == "y" or x == "yes":
         print("Saving data")
-        save_data(dataLists)
+        saveData(dataLists)
     print("Quitting application")
 
 
 # This is the menu function, it will ask the user what it wants and contains all code to execute the input of the user.
-def show_menu(dataLists):
+def showMenu(dataLists):
     # This is the menu. It will show the user the options that s/he has.
     loop = True
     while loop:
@@ -215,7 +215,7 @@ def show_menu(dataLists):
 
 
 # This is the save function. When it is called it will save all data onto the text files.
-def save_data(dataLists):
+def saveData(dataLists):
     newList = []
     for i in range(len(dataLists[0])):
         newList.append(dataLists[0][i])
@@ -231,7 +231,7 @@ def save_data(dataLists):
 
 # This main function runs the program
 def main():
-    show_menu(dataLists)
+    showMenu(dataLists)
 
 
 main()
