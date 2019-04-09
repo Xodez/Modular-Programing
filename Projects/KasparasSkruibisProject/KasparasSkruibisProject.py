@@ -5,11 +5,14 @@ import random as r
 
 # Loads the data onto lists
 def loadData():
-    dataLists = [[], [], [], [], []]
-    with open('employee.txt') as f:
-        for i, line in enumerate(f):
-            dataLists[i % 5].append(line.strip())
-    return dataLists
+    try:
+        dataLists = [[], [], [], [], []]
+        with open('employee.txt') as f:
+            for i, line in enumerate(f):
+                dataLists[i % 5].append(line.strip())
+        return dataLists
+    except:
+        print("Something went wrong loading the file: ")
 
 
 dataLists = loadData()
