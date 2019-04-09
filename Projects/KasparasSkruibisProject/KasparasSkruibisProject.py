@@ -3,7 +3,7 @@
 import random as r
 
 
-# This function will open the data in the employee text file and save it in lists
+# Loads the data onto lists
 def loadData():
     dataLists = [[], [], [], [], []]
     with open('employee.txt') as f:
@@ -15,6 +15,7 @@ def loadData():
 dataLists = loadData()
 
 
+# Shows all employees
 def showAllEmployees(dataLists):
     print("Showing employees")
     for i in range(len(dataLists[1])):
@@ -23,6 +24,7 @@ def showAllEmployees(dataLists):
     input("Press enter to continue")
 
 
+# shows specific employee
 def chooseSpecificEmployee(dataLists):
     while True:
         x = input("Please put in the ID of the employee: ")
@@ -36,6 +38,7 @@ def chooseSpecificEmployee(dataLists):
     input("Press enter to continue")
 
 
+# Edits employee salary
 def editSalary(dataLists):
     while True:
         x = input("Please put in the ID of the employee: ")
@@ -50,6 +53,7 @@ def editSalary(dataLists):
     input("Press enter to continue")
 
 
+# Add an employee
 def addEmployee(dataLists):
     while True:
         x = input("Please put in the first name of the employee: ")
@@ -108,6 +112,7 @@ def addEmployee(dataLists):
     input("Press enter to continue")
 
 
+# Remove employee
 def removeEmployee(dataLists):
     while True:
         x = input("Please enter the employee ID you wish to delete: ")
@@ -121,6 +126,7 @@ def removeEmployee(dataLists):
     input("Press enter to continue")
 
 
+# Make the bonus sheet file
 def addBonus(dataLists):
     while True:
         x = input("Put in the % of the bonus: ")
@@ -149,6 +155,7 @@ def addBonus(dataLists):
     input("Press enter to continue")
 
 
+# Generate report
 def genReport(dataLists):
     print("Generating a report for management")
     sum = 0
@@ -164,6 +171,7 @@ def genReport(dataLists):
     input("Press enter to continue")
 
 
+# Quit and save
 def quitAndSave():
     x = input("Would you like to save and quit? y/n: ")
     if x == "y" or x == "yes":
