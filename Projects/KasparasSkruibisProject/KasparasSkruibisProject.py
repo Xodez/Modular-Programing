@@ -99,7 +99,7 @@ def addEmployee(dataLists):
             continue
         else:
             break
-    email = x + y + "@gmail.com"
+    email = x + y + str(genID) + "@gmail.com"
     dataLists[0].append(str(genID))
     dataLists[1].append(str(x))
     dataLists[2].append(str(y))
@@ -186,7 +186,6 @@ def showMenu(dataLists):
         print("6. Add bonus for employees")
         print("7. Generate a report for management")
         print("8. Exit")
-        print("9. Save data")
         print(30 * "-", "MENU", 30 * "-")
         try:
             choice = int(input("Enter your choice [1-8]: "))
