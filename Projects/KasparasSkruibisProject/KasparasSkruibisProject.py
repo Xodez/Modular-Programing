@@ -51,7 +51,18 @@ def editSalary(dataLists):
             print("Invalid Input")
     y = dataLists[0].index(x)
     print("Current salary:", dataLists[4][y])
-    z = input("Please put in the new salary: ")
+    while True:
+        z = input("Please put in the new salary: ")
+        try:
+            val = float(z)
+            pass
+        except:
+            print("The input must be a number")
+            continue
+        if z == "":
+            print("Input cannon be empty")
+        else:
+            break
     dataLists[4][y] = z
     input("Press enter to continue")
 
